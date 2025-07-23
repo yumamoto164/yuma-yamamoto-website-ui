@@ -1,9 +1,10 @@
 import { title } from "@/components/primitives";
+import { SoccerXgCollectionContainer } from "./components/soccerXgCollectionContainer";
 
 export default function SoccerXgCollectionPage() {
   return (
-    <div>
-      <h1 className={title()}>This is where I'll put the soccer xG collection ui</h1>
+    <div style={{ maxWidth: "1600px", margin: "0 auto", width: "100%" }}>
+      <SoccerXgCollectionContainer />
     </div>
   );
 }

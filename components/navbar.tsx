@@ -36,7 +36,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 color="foreground"
                 href={item.href}
@@ -57,10 +57,10 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <Link>
-            <MdEmail className="text-default-500" height={24} width={24}/>
+            <MdEmail className="text-default-500" height={24} width={24} />
           </Link>
-          <Link>
-            <FaLinkedin className="text-default-500" height={24} width={24}/>
+          <Link aria-label="LinkedIn" href={siteConfig.links.linkedin}>
+            <FaLinkedin className="text-default-500" height={24} width={24} />
           </Link>
           <ThemeSwitch />
         </NavbarItem>

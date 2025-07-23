@@ -1,8 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Yuma Yamamoto Website",
+  description:
+    "Personal website of Yuma Yamamoto, showcasing projects and skills.",
   navItems: [
     {
       label: "Home",
@@ -24,6 +25,6 @@ export const siteConfig = {
   links: {
     github: "https://github.com/yumamoto164",
     linkedin: "https://www.linkedin.com/in/yumamoto164",
-    email: ''
+    email: "",
   },
 };
