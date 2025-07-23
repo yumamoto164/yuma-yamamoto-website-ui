@@ -26,7 +26,6 @@ export const SoccerXgCollectionContainer = () => {
   const handleChangePlayerEntryOpen = () => {
     setIsPlayerEntryOpen(!isPlayerEntryOpen);
     const teamEntryValues = getValues();
-    console.log("Team Entry Values:", teamEntryValues);
   };
 
   return (
