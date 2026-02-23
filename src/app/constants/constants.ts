@@ -1,4 +1,5 @@
 import umassSoccerPhoto from "../../images/UMass_Womens_Soccer.jpg";
+import basketballStatskeeperPhoto from "../../images/basketball_statskeeper.png";
 
 export const GITHUB_URL = "https://github.com/yumamoto164";
 export const LINKEDIN_URL = "https://linkedin.com/in/yumamoto164";
@@ -163,34 +164,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "AI-Powered Analytics Dashboard",
-    description:
-      "A comprehensive analytics platform with AI-driven insights and real-time data visualization. Built for enterprise clients to make data-driven decisions.",
-    image:
-      "https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwdmlzdWFsaXphdGlvbiUyMGFuYWx5dGljc3xlbnwxfHx8fDE3NzE2NDcyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    techStack: ["React", "TypeScript", "Python", "PyTorch", "Pandas"],
-    github: "https://github.com/yourusername/analytics-dashboard",
-    demo: "https://analytics-demo.example.com",
-  },
-  {
-    title: "Smart Task Management App",
-    description:
-      "An intelligent task management application that uses AI to prioritize tasks and optimize workflow. Features real-time collaboration and smart notifications.",
-    image:
-      "https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBhcHBsaWNhdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NzE2OTEzMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    techStack: ["Next.js", "TypeScript", "LangChain", "React"],
-    github: "https://github.com/yourusername/task-manager",
-    demo: "https://tasks-demo.example.com",
-  },
-  {
-    title: "Mobile Fitness Companion",
-    description:
-      "A cross-platform mobile application for fitness tracking with personalized workout recommendations powered by machine learning algorithms.",
-    image:
-      "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzcxNjQ3MjEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    techStack: ["React", "Python", "PyTorch", "LangGraph"],
-    github: "https://github.com/yourusername/fitness-app",
-    demo: "https://fitness-demo.example.com",
+    title: '"Speak-the-Play" Basketball Statskeeper',
+    description: `Speak the play — "Jordan, three-pointer made" — and the AI transcribes it, identifies the player, and updates the stats automatically. One person. Full box score. No pen required.`,
+    image: basketballStatskeeperPhoto,
+    techStack: ["React", "TypeScript", "Python", "Langchain"],
+    github: "https://github.com/yumamoto164/basketball-statskeeper-ai",
+    demo: "https://basketball-statskeeper-ai-frontend.vercel.app/",
   },
 ];
 

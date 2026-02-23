@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
-import { GITHUB_URL, LINKEDIN_URL, EMAIL_URL, navItems } from "../constants/constants";
+import { GITHUB_URL, LINKEDIN_URL, EMAIL_URL, navItems, HEADER_HEIGHT } from "../constants/constants";
 
 export function Header() {
   const [activeSection, setActiveSection] = useState("home");
@@ -30,7 +30,7 @@ export function Header() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80;
+      const offset = HEADER_HEIGHT;
       const offsetPosition =
         element.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });

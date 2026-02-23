@@ -4,18 +4,21 @@ import { projects } from "../constants/constants";
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="pt-8 pb-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl mb-4 text-center text-gray-900">Projects</h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
           A showcase of my recent work and personal projects
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid [grid-template-columns:repeat(auto-fit,340px)] justify-center gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer"
+              onClick={() =>
+                window.open(project.demo, "_blank", "noopener,noreferrer")
+              }
             >
               <div className="relative overflow-hidden">
                 <ImageWithFallback
@@ -26,13 +29,13 @@ export function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl mb-2 text-gray-900">{project.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-600 text-sm mb-4">
                   {project.description}
                 </p>
 
-                <div className="mb-4">
+                <div className="mb-4 mt-auto">
                   <p className="text-xs text-gray-500 mb-2">Tech Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
@@ -52,6 +55,7 @@ export function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Github size={18} />
                     <span>Code</span>
