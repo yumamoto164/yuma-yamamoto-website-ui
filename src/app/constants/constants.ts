@@ -92,40 +92,40 @@ export interface ColorClasses {
 // Ordered oldest → newest (left to right on timeline)
 export const experiences: Experience[] = [
   {
-    year: "2019",
-    title: "CS Degree",
-    company: "University",
+    year: "May '21 - July '21",
+    title: "Data Analytics Intern",
+    company: "Western Mass Pioneers",
     description:
-      "Graduated with honors. Focused on software engineering, algorithms, and artificial intelligence. Built a strong foundation in computer science principles.",
+      "Built and deployed an expected goals (xG) model in Python to quantify shot quality for a USL League 2 team; used Binomial Distribution analysis to inform player personnel decisions.",
     Icon: GraduationCap,
-    color: "orange",
+    color: "slate",
   },
   {
-    year: "2021",
-    title: "Junior Dev",
-    company: "StartUp Labs",
+    year: "Aug '21 - Dec '21",
+    title: "Data Science Intern",
+    company: "UMass Women's Soccer",
     description:
-      "Started my professional journey building responsive web applications. Learned modern development practices and agile methodologies.",
+      "Built Python visualizations and k-means clustering models for opponent analysis; weekly reports contributed to the program's first conference championship appearance in 10 years.",
     Icon: Award,
-    color: "green",
+    color: "slate",
   },
   {
-    year: "2022",
-    title: "Full Stack Dev",
-    company: "Digital Solutions Co.",
+    year: "Jan '22 - July '22",
+    title: "Data Science Co-op",
+    company: "Liberty Mutual",
     description:
-      "Developed and maintained multiple client projects using React, TypeScript, and Python. Implemented AI features using LangChain and PyTorch.",
+      "Built a CNN-based OCR model reducing odometer recognition error by 76% and latency by 87.5%; created an in-house library for training and deploying CNN models with MLflow.",
     Icon: Briefcase,
-    color: "purple",
+    color: "slate",
   },
   {
-    year: "2024",
-    title: "Senior Dev",
-    company: "Tech Innovations Inc.",
+    year: "Jul '23 - Present",
+    title: "Associate Software Engineer",
+    company: "Optum",
     description:
-      "Leading development of AI-powered web applications, mentoring junior developers, and architecting scalable solutions using React, Next.js, and Python.",
+      "Architecting an AI agent evaluation framework for pre-deployment LLM validation; built a production React platform for healthcare brokers and delivered CopilotKit/AGUI AI integration POCs.",
     Icon: Rocket,
-    color: "blue",
+    color: "slate",
   },
 ];
 
@@ -142,6 +142,7 @@ export const colorClasses: Record<string, ColorClasses> = {
     ring: "ring-purple-300",
   },
   blue: { bg: "bg-blue-500", text: "text-blue-600", ring: "ring-blue-300" },
+  slate: { bg: "bg-slate-500", text: "text-slate-600", ring: "ring-slate-300" },
 };
 
 // ─── Projects ─────────────────────────────────────────────────────────────────

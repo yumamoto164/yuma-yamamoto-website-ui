@@ -6,9 +6,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl mb-4 text-center text-gray-900">
-          Featured Projects
-        </h2>
+        <h2 className="text-4xl mb-4 text-center text-gray-900">Projects</h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
           A showcase of my recent work and personal projects
         </p>
@@ -72,8 +70,6 @@ export function Projects() {
             </div>
           ))}
         </div>
-
-
       </div>
     </section>
   );
