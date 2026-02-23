@@ -1,5 +1,4 @@
-import { GraduationCap, Award, Briefcase, Rocket } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import umassSoccerPhoto from "../../images/UMass_Womens_Soccer.jpg";
 
 export const GITHUB_URL = "https://github.com/yumamoto164";
 export const LINKEDIN_URL = "https://linkedin.com/in/yumamoto164";
@@ -78,9 +77,9 @@ export interface Experience {
   year: string;
   title: string;
   company: string;
-  description: string;
-  Icon: LucideIcon;
+  description: string[];
   color: string;
+  popoverImage?: string;
 }
 
 export interface ColorClasses {
@@ -95,36 +94,42 @@ export const experiences: Experience[] = [
     year: "May '21 - July '21",
     title: "Data Analytics Intern",
     company: "Western Mass Pioneers",
-    description:
-      "Built and deployed an expected goals (xG) model in Python to quantify shot quality for a USL League 2 team; used Binomial Distribution analysis to inform player personnel decisions.",
-    Icon: GraduationCap,
+    description: [
+      "Built and deployed an expected goals (xG) model to quantify shot quality for a USL League 2 team",
+      "Used Binomial Distribution analysis to dictate player personnel decisions",
+    ],
     color: "slate",
   },
   {
     year: "Aug '21 - Dec '21",
     title: "Data Science Intern",
     company: "UMass Women's Soccer",
-    description:
-      "Built Python visualizations and k-means clustering models for opponent analysis; weekly reports contributed to the program's first conference championship appearance in 10 years.",
-    Icon: Award,
+    description: [
+      "Built data visualizations and k-means clustering models for opponent analysis",
+      "Weekly reports contributed to the program's first conference championship appearance in 10 years",
+    ],
     color: "slate",
+    popoverImage: umassSoccerPhoto,
   },
   {
     year: "Jan '22 - July '22",
     title: "Data Science Co-op",
     company: "Liberty Mutual",
-    description:
-      "Built a CNN-based OCR model reducing odometer recognition error by 76% and latency by 87.5%; created an in-house library for training and deploying CNN models with MLflow.",
-    Icon: Briefcase,
+    description: [
+      "Built a CNN-based OCR model reducing odometer recognition error by 76% and latency by 87.5%",
+      "Created an in-house library for training and deploying CNN models with MLflow",
+    ],
     color: "slate",
   },
   {
     year: "Jul '23 - Present",
     title: "Associate Software Engineer",
     company: "Optum",
-    description:
-      "Architecting an AI agent evaluation framework for pre-deployment LLM validation; built a production React platform for healthcare brokers and delivered CopilotKit/AGUI AI integration POCs.",
-    Icon: Rocket,
+    description: [
+      "Architecting an AI agent evaluation framework for pre-deployment LLM validation",
+      "Delivered CopilotKit/AGUI AI assistant integration POCs",
+      "Led mentorship across the team while building a React web app, and ranked #1 in defect resolutions and code contributions among all engineers",
+    ],
     color: "slate",
   },
 ];

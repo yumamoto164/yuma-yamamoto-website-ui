@@ -4,7 +4,6 @@ import westernMassPioneersLogo from "../../images/western_mass_pioneers.png";
 import umassSoccerLogo from "../../images/umass_amherst_logo.png";
 import libertyMutualLogo from "../../images/liberty_mutual_logo.png";
 import optumLogo from "../../images/optum_logo.png";
-
 const companyLogos: Record<string, string> = {
   "Western Mass Pioneers": westernMassPioneersLogo,
   "UMass Women's Soccer": umassSoccerLogo,
@@ -16,9 +15,6 @@ const logoOnlyCompanies = ["Liberty Mutual", "Optum"];
 
 export function ExperienceTimeline() {
   const [hoveredExp, setHoveredExp] = useState<number | null>(null);
-  const [pinnedExp, setPinnedExp] = useState<number | null>(null);
-
-  const visibleExp = hoveredExp !== null ? hoveredExp : pinnedExp;
 
   return (
     <div>
@@ -35,13 +31,27 @@ export function ExperienceTimeline() {
         <div className="flex justify-between">
           {experiences.map((exp, index) => {
             const colors = colorClasses[exp.color];
-            const isVisible = visibleExp === index;
+            const isHovered = hoveredExp === index;
             const isLogoOnly = logoOnlyCompanies.includes(exp.company);
+            const isFirst = index === 0;
             const isLast = index === experiences.length - 1;
+            const popoverAlign = isFirst
+              ? "left-0"
+              : isLast
+                ? "right-0"
+                : "left-1/2 -translate-x-1/2";
+            const tailAlign = isFirst
+              ? "left-10"
+              : isLast
+                ? "right-10"
+                : "left-1/2 -translate-x-1/2";
+
             return (
               <div
                 key={index}
                 className="flex flex-col items-center gap-1 relative w-28"
+                onMouseEnter={() => setHoveredExp(index)}
+                onMouseLeave={() => setHoveredExp(null)}
               >
                 {/* Year */}
                 <span className="text-xs text-gray-400">{exp.year}</span>
@@ -49,13 +59,8 @@ export function ExperienceTimeline() {
                 {/* Dot */}
                 <button
                   className={`${isLast ? "w-6 h-6 animate-pulse -mt-1" : "w-4 h-4"} rounded-full ${colors.bg} relative z-10 hover:scale-125 transition-transform ring-2 ring-white ${
-                    isVisible ? `ring-offset-1 ${colors.ring}` : ""
+                    isHovered ? `ring-offset-1 ${colors.ring}` : ""
                   }`}
-                  onMouseEnter={() => setHoveredExp(index)}
-                  onMouseLeave={() => setHoveredExp(null)}
-                  onClick={() =>
-                    setPinnedExp((prev) => (prev === index ? null : index))
-                  }
                   aria-label={`${exp.title} at ${exp.company}`}
                 />
 
@@ -83,25 +88,41 @@ export function ExperienceTimeline() {
                     />
                   )}
                 </div>
+
+                {/* Popover */}
+                {isHovered && (
+                  <div
+                    className={`absolute bottom-full mb-2 z-50 w-72 ${popoverAlign}`}
+                  >
+                    <div className="relative bg-white rounded-xl border border-gray-200 shadow-xl p-3">
+                      {/* Arrow tail pointing down toward dot */}
+                      <div
+                        className={`absolute -bottom-[6px] w-3 h-3 bg-white border-r border-b border-gray-200 rotate-45 ${tailAlign}`}
+                      />
+                      {exp.popoverImage && (
+                        <img
+                          src={exp.popoverImage}
+                          alt={exp.company}
+                          className="w-full object-contain rounded-lg mb-2"
+                        />
+                      )}
+                      <p
+                        className={`text-xs font-semibold ${colors.text} mb-1`}
+                      >
+                        {exp.title} · {exp.company}
+                      </p>
+                      <ul className="text-xs text-gray-600 leading-relaxed list-disc list-inside space-y-1">
+                        {exp.description.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
-
-        {/* Detail card */}
-        {visibleExp !== null && (
-          <div className="mt-4 p-3 bg-white rounded-lg border border-gray-200 shadow-sm">
-            <p
-              className={`text-xs font-semibold ${colorClasses[experiences[visibleExp].color].text} mb-1`}
-            >
-              {experiences[visibleExp].title} ·{" "}
-              {experiences[visibleExp].company}
-            </p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              {experiences[visibleExp].description}
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );
