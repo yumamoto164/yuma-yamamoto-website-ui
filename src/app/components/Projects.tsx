@@ -4,10 +4,10 @@ import { projects } from "../constants/constants";
 
 export function Projects() {
   return (
-    <section id="projects" className="pt-8 pb-20 bg-gray-50">
+    <section id="projects" className="pt-8 pb-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl mb-4 text-center text-gray-900">Projects</h2>
-        <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+        <h2 className="text-4xl mb-4 text-center text-gray-900 dark:text-white">Projects</h2>
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
           A showcase of my recent work and personal projects
         </p>
 
@@ -15,7 +15,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer"
+              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer"
               onClick={() =>
                 window.open(project.demo, "_blank", "noopener,noreferrer")
               }
@@ -30,18 +30,18 @@ export function Projects() {
               </div>
 
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-xl mb-2 text-gray-900">{project.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">
+                <h3 className="text-xl mb-2 text-gray-900 dark:text-white">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
                   {project.description}
                 </p>
 
                 <div className="mb-4 mt-auto">
-                  <p className="text-xs text-gray-500 mb-2">Tech Stack</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Tech Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded-full"
+                        className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full"
                       >
                         {tech}
                       </span>
@@ -49,12 +49,12 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div className="flex gap-4 pt-4 border-t border-gray-100">
+                <div className="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <Github size={18} />
@@ -64,7 +64,7 @@ export function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"
                   >
                     <ExternalLink size={18} />
                     <span>Demo</span>

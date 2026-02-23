@@ -13,6 +13,7 @@ const DEVICONS_BASE =
 export interface Technology {
   name: string;
   logo: string;
+  invertInDark?: boolean;
 }
 
 export interface SkillGroup {
@@ -45,6 +46,7 @@ export const skills: SkillGroup[] = [
       {
         name: "Express.js",
         logo: `${DEVICONS_BASE}/express/express-original.svg`,
+        invertInDark: true,
       },
       {
         name: "SQL",
@@ -58,6 +60,7 @@ export const skills: SkillGroup[] = [
       {
         name: "LangChain/LangGraph",
         logo: "https://cdn.simpleicons.org/langchain",
+        invertInDark: true,
       },
       {
         name: "PyTorch",
@@ -81,11 +84,13 @@ export interface Experience {
   description: string[];
   color: string;
   popoverImage?: string;
+  invertLogoInDark?: boolean;
 }
 
 export interface ColorClasses {
   bg: string;
   text: string;
+  darkText: string;
   ring: string;
 }
 
@@ -121,6 +126,7 @@ export const experiences: Experience[] = [
       "Created an in-house library for training and deploying CNN models with MLflow",
     ],
     color: "slate",
+    invertLogoInDark: true,
   },
   {
     year: "Jul '23 - Present",
@@ -139,16 +145,33 @@ export const colorClasses: Record<string, ColorClasses> = {
   orange: {
     bg: "bg-orange-500",
     text: "text-orange-600",
+    darkText: "dark:text-orange-400",
     ring: "ring-orange-300",
   },
-  green: { bg: "bg-green-500", text: "text-green-600", ring: "ring-green-300" },
+  green: {
+    bg: "bg-green-500",
+    text: "text-green-600",
+    darkText: "dark:text-green-400",
+    ring: "ring-green-300",
+  },
   purple: {
     bg: "bg-purple-500",
     text: "text-purple-600",
+    darkText: "dark:text-purple-400",
     ring: "ring-purple-300",
   },
-  blue: { bg: "bg-blue-500", text: "text-blue-600", ring: "ring-blue-300" },
-  slate: { bg: "bg-slate-500", text: "text-slate-600", ring: "ring-slate-300" },
+  blue: {
+    bg: "bg-blue-500",
+    text: "text-blue-600",
+    darkText: "dark:text-blue-400",
+    ring: "ring-blue-300",
+  },
+  slate: {
+    bg: "bg-slate-500",
+    text: "text-slate-600",
+    darkText: "dark:text-slate-300",
+    ring: "ring-slate-300",
+  },
 };
 
 // ─── Projects ─────────────────────────────────────────────────────────────────

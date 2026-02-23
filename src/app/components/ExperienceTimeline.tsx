@@ -18,14 +18,14 @@ export function ExperienceTimeline() {
 
   return (
     <div>
-      <h3 className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
+      <h3 className="text-sm font-semibold tracking-widest text-gray-400 dark:text-gray-300 uppercase mb-4">
         Experience
       </h3>
       <div className="relative">
         {/* Horizontal line — year 16px + gap 4px + dot-center 8px = 28px */}
-        <div className="absolute top-7 left-0 right-0 h-px bg-gray-300" />
+        <div className="absolute top-7 left-0 right-0 h-px bg-gray-300 dark:bg-gray-600" />
         {/* Arrow at end of line */}
-        <div className="absolute top-[23px] right-0 w-0 h-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-gray-300" />
+        <div className="absolute top-[23px] right-0 w-0 h-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-gray-300 dark:border-l-gray-600" />
 
         {/* Entries */}
         <div className="flex justify-between">
@@ -54,11 +54,11 @@ export function ExperienceTimeline() {
                 onMouseLeave={() => setHoveredExp(null)}
               >
                 {/* Year */}
-                <span className="text-xs text-gray-400">{exp.year}</span>
+                <span className="text-xs text-gray-400 dark:text-gray-300">{exp.year}</span>
 
                 {/* Dot */}
                 <button
-                  className={`${isLast ? "w-6 h-6 animate-pulse -mt-1" : "w-4 h-4"} rounded-full ${colors.bg} relative z-10 hover:scale-125 transition-transform ring-2 ring-white ${
+                  className={`${isLast ? "w-6 h-6 animate-pulse -mt-1" : "w-4 h-4"} rounded-full ${colors.bg} relative z-10 hover:scale-125 transition-transform ring-2 ring-white dark:ring-gray-900 ${
                     isHovered ? `ring-offset-1 ${colors.ring}` : ""
                   }`}
                   aria-label={`${exp.title} at ${exp.company}`}
@@ -66,7 +66,7 @@ export function ExperienceTimeline() {
 
                 {/* Title — centered */}
                 <span
-                  className={`text-center ${colors.text} mt-1 w-full leading-tight ${isLast ? "text-sm font-bold" : "text-xs font-medium"}`}
+                  className={`text-center ${colors.text} ${colors.darkText} mt-1 w-full leading-tight ${isLast ? "text-sm font-bold" : "text-xs font-medium"}`}
                 >
                   {exp.title}
                 </span>
@@ -76,7 +76,7 @@ export function ExperienceTimeline() {
                   className={`flex items-center w-full mt-1 ${isLogoOnly ? "justify-center" : "justify-between"}`}
                 >
                   {!isLogoOnly && (
-                    <span className="text-xs text-gray-400 leading-tight">
+                    <span className="text-xs text-gray-400 dark:text-gray-300 leading-tight">
                       {exp.company}
                     </span>
                   )}
@@ -84,7 +84,7 @@ export function ExperienceTimeline() {
                     <img
                       src={companyLogos[exp.company]}
                       alt={exp.company}
-                      className={`rounded object-contain ${isLogoOnly ? "h-12 w-auto" : "w-12 h-12"}`}
+                      className={`rounded object-contain ${isLogoOnly ? "h-12 w-auto" : "w-12 h-12"} ${exp.invertLogoInDark ? "dark:invert" : ""}`}
                     />
                   )}
                 </div>
@@ -94,10 +94,10 @@ export function ExperienceTimeline() {
                   <div
                     className={`absolute bottom-full mb-2 z-50 w-72 ${popoverAlign}`}
                   >
-                    <div className="relative bg-white rounded-xl border border-gray-200 shadow-xl p-3">
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-xl p-3">
                       {/* Arrow tail pointing down toward dot */}
                       <div
-                        className={`absolute -bottom-[6px] w-3 h-3 bg-white border-r border-b border-gray-200 rotate-45 ${tailAlign}`}
+                        className={`absolute -bottom-[6px] w-3 h-3 bg-white dark:bg-gray-800 border-r border-b border-gray-200 dark:border-gray-700 rotate-45 ${tailAlign}`}
                       />
                       {exp.popoverImage && (
                         <img
@@ -107,11 +107,11 @@ export function ExperienceTimeline() {
                         />
                       )}
                       <p
-                        className={`text-xs font-semibold ${colors.text} mb-1`}
+                        className={`text-xs font-semibold ${colors.text} ${colors.darkText} mb-1`}
                       >
                         {exp.title} · {exp.company}
                       </p>
-                      <ul className="text-xs text-gray-600 leading-relaxed list-disc list-inside space-y-1">
+                      <ul className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed list-disc list-inside space-y-1">
                         {exp.description.map((point, i) => (
                           <li key={i}>{point}</li>
                         ))}
