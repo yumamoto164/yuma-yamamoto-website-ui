@@ -1,53 +1,52 @@
-# Next.js & HeroUI Template
+# yuma-yamamoto-website-ui
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+Personal portfolio website for Yuma Yamamoto — Software Developer & AI Engineer.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## Tech Stack
 
-## Technologies Used
+- **React 18** + **TypeScript**
+- **Vite** — build tool and dev server
+- **Tailwind CSS v4** — styling with dark mode support
+- **Lucide React** — icons
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## Features
 
-## How to Use
+- Hero section with bio, skills grid, and interactive experience timeline
+- Projects showcase
+- Light/dark mode toggle (defaults to dark, persists to `localStorage`)
+- Responsive layout with mobile navigation menu
 
-### Use the template with create-next-app
+## Getting Started
 
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Run the development server
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+Build for production:
 
 ```bash
-public-hoist-pattern[]=*@heroui/*
+npm run build
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+## Project Structure
 
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+```
+src/
+  app/
+    components/       # Page sections and UI components
+    constants/        # Shared constants, data, and type definitions
+    hooks/            # Custom React hooks (useTheme)
+    utils.ts
+  images/
+  styles/
+    theme.css         # CSS variables for light/dark theming
+    tailwind.css      # Tailwind entry point
+```
