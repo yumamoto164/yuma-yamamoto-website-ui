@@ -201,6 +201,10 @@ export const navItems: NavItem[] = [
   { id: "projects", label: "Projects" },
 ];
 
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+export const HEADER_HEIGHT = 64; // px — matches h-16 on the Header component
+
 // ─── Bernie Bounce ────────────────────────────────────────────────────────────
 
 export const BERNIE_SPEED = 2;

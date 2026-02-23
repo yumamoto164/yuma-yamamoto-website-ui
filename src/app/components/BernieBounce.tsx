@@ -1,14 +1,15 @@
 import { useEffect, useRef } from "react";
 import bernieMeme from "../../images/bernie_meme.png";
+import { BERNIE_SPEED, HEADER_HEIGHT } from "../constants/constants";
 
-const SPEED = 2;
+const SPEED = BERNIE_SPEED;
 
 const getSize = () =>
   Math.max(60, Math.min(Math.round(window.innerWidth * 0.13), 300));
 
 export function BernieBounce() {
   const imgRef = useRef<HTMLImageElement>(null);
-  const posRef = useRef({ x: 80, y: 80, dx: SPEED, dy: SPEED });
+  const posRef = useRef({ x: 80, y: 80 + HEADER_HEIGHT, dx: SPEED, dy: SPEED });
   const sizeRef = useRef(getSize());
   const rafRef = useRef<number>(0);
 
@@ -36,9 +37,9 @@ export function BernieBounce() {
         pos.dx = -pos.dx;
         pos.x = Math.max(0, Math.min(pos.x, maxX));
       }
-      if (pos.y <= 0 || pos.y >= maxY) {
+      if (pos.y <= HEADER_HEIGHT || pos.y >= maxY) {
         pos.dy = -pos.dy;
-        pos.y = Math.max(0, Math.min(pos.y, maxY));
+        pos.y = Math.max(HEADER_HEIGHT, Math.min(pos.y, maxY));
       }
 
       img.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
