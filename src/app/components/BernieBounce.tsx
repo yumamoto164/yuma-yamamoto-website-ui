@@ -1,22 +1,33 @@
 import { useEffect, useRef } from "react";
 import bernieMeme from "../../images/bernie_meme.png";
 
-const IMG_SIZE = 300;
 const SPEED = 2;
+
+const getSize = () =>
+  Math.max(60, Math.min(Math.round(window.innerWidth * 0.13), 300));
 
 export function BernieBounce() {
   const imgRef = useRef<HTMLImageElement>(null);
   const posRef = useRef({ x: 80, y: 80, dx: SPEED, dy: SPEED });
+  const sizeRef = useRef(getSize());
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const img = imgRef.current;
     if (!img) return;
 
+    const applySize = (size: number) => {
+      img.style.width = `${size}px`;
+      img.style.height = `${size}px`;
+    };
+
+    applySize(sizeRef.current);
+
     const animate = () => {
       const pos = posRef.current;
-      const maxX = window.innerWidth - IMG_SIZE;
-      const maxY = window.innerHeight - IMG_SIZE;
+      const size = sizeRef.current;
+      const maxX = window.innerWidth - size;
+      const maxY = window.innerHeight - size;
 
       pos.x += pos.dx;
       pos.y += pos.dy;
@@ -34,8 +45,18 @@ export function BernieBounce() {
       rafRef.current = requestAnimationFrame(animate);
     };
 
+    const handleResize = () => {
+      sizeRef.current = getSize();
+      applySize(sizeRef.current);
+    };
+
+    window.addEventListener("resize", handleResize);
     rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -45,8 +66,6 @@ export function BernieBounce() {
       alt="Bernie"
       className="fixed top-0 left-0 pointer-events-none select-none"
       style={{
-        width: IMG_SIZE,
-        height: IMG_SIZE,
         objectFit: "contain",
         zIndex: 40,
         opacity: 0.85,

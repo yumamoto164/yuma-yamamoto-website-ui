@@ -1,9 +1,6 @@
 import { Header } from "./components/Header";
 import { MainPage } from "./components/MainPage";
-import { Skills } from "./components/Skills";
-import { Timeline } from "./components/Timeline";
 import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
 import { BernieBounce } from "./components/BernieBounce";
 
 export default function App() {
@@ -12,10 +9,7 @@ export default function App() {
       <BernieBounce />
       <Header />
       <MainPage />
-      <Skills />
-      <Timeline />
       <Projects />
-      <Contact />
     </div>
   );
 }
